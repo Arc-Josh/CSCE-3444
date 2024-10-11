@@ -30,6 +30,19 @@ export default function Signup({navigation}) {
                   value={form.email}
                   onChangeText={email => setForm({...form,email})}
                   />
+
+           <View style={styles.input}>
+              <Text style={styles.inputLabel}>Full Name</Text>
+              <TextInput
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="name"
+                  style={styles.inputControl}
+                  placeholder="John Doe"
+                  placeholderTextColor="#6b7280"
+                  value={form.name}
+                  onChangeText={name => setForm({...form,name})}
+                  />
           <View style={styles.input}>
               <Text style={styles.inputLabel}>Password</Text>
               <TextInput
