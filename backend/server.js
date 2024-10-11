@@ -3,7 +3,7 @@ const pgp = require('pg-promise')();
 const bcrypt = require('bcrypt');
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8081;
 
 
 const initDB = () => {

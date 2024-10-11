@@ -45,8 +45,22 @@ export default function Signin({navigation}) {
       </View>
       <View style={styles.formAction}>
         <TouchableOpacity 
+<<<<<<< HEAD
           onPress={() =>{ navigation.navigate("Main")
             //handle onPress
+=======
+          onPress={()=>{
+            fetch('http://localhost:8081/login', {
+              method: 'POST',
+              headers:{
+                'Content-type':'application/json',
+              },
+              body: JSON.stringify({
+                username: form.name,
+                password: form.password,
+              }),
+            })            
+>>>>>>> 34474f4545cd914e8cb70021d5626e6b681a14c6
 
             Alert.alert('Successfully logged in!');
           }}>

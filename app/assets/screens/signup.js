@@ -45,8 +45,18 @@ export default function Signup({navigation}) {
         <TouchableOpacity 
           onPress={()=>{
             //handle onPress
-
-            Alert.alert('Successfully signed up!');
+              fetch('http://localhost:8081/register', {
+              method: 'POST',
+              headers:{
+                'Content-type':'application/json',
+              },
+              body: JSON.stringify({
+                username: form.name,
+                password: form.password,
+                email: form.email,
+              }),
+            })            
+                Alert.alert('Successfully signed up!');
           }}>
           <View style={styles.btn}>
              <Text style={styles.btnText}>Sign up</Text>
