@@ -49,8 +49,9 @@ export default function Signin({navigation}) {
           onPress={() =>{ navigation.navigate("Main")
             //handle onPress
 =======
-          onPress={()=>{
-            fetch('http://localhost:8081/login', {
+          onPress={async ()=> {
+           try{
+              const response = await fetch('http://localhost:8081/login', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
@@ -59,10 +60,17 @@ export default function Signin({navigation}) {
                 username: form.name,
                 password: form.password,
               }),
-            })            
->>>>>>> 34474f4545cd914e8cb70021d5626e6b681a14c6
-
-            Alert.alert('Successfully logged in!');
+            });            
+              const data = await response.json();
+              if(response.ok) {
+                Alert.alert('Successfully logged in!');
+              }else{
+                Alert.alert('Error logging in', data.error || 'unknown error occured');
+              }
+            }catch(error){
+              Alert.alert('Error','Could not connect to server');
+              console.error(error);
+            } 
           }}>
           <View style={styles.btn}>
              <Text style={styles.btnText}>Sign in</Text>
