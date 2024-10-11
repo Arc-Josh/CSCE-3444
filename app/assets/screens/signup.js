@@ -36,7 +36,7 @@ export default function Signup({navigation}) {
               <TextInput
                   autoCapitalize="none"
                   autoCorrect={false}
-                  keyboardType="name"
+                  keyboardType="default"
                   style={styles.inputControl}
                   placeholder="John Doe"
                   placeholderTextColor="#6b7280"
@@ -56,9 +56,10 @@ export default function Signup({navigation}) {
       </View>
       <View style={styles.formAction}>
         <TouchableOpacity 
-          onPress={()=>{
+          onPress={async ()=> {
             //handle onPress
-              fetch('http://localhost:8081/register', {
+              try{
+              const response = await fetch('http://localhost:8081/register', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
@@ -68,8 +69,17 @@ export default function Signup({navigation}) {
                 password: form.password,
                 email: form.email,
               }),
-            })            
+            });            
+                const data = await response.json();
+              if(response.ok) {
                 Alert.alert('Successfully signed up!');
+              }else{
+                Alert.alert('Error signing up', data.error || 'unknown error occured');
+              }
+            }catch(error){
+              Alert.alert('Error','Could not connect to server');
+              console.error(error);
+            } 
           }}>
           <View style={styles.btn}>
              <Text style={styles.btnText}>Sign up</Text>
