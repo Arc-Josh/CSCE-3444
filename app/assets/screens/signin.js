@@ -45,7 +45,7 @@ export default function Signin({navigation}) {
       </View>
       <View style={styles.formAction}>
         <TouchableOpacity 
-          onPress={()=>{
+          onPress={() =>{ navigation.navigate("Main")
             //handle onPress
 
             Alert.alert('Successfully logged in!');
