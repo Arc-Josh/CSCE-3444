@@ -31,6 +31,7 @@ export default function Signin({navigation}) {
                   value={form.email}
                   onChangeText={email => setForm({...form,email})}
                   />
+        </View>
           <View style={styles.input}>
               <Text style={styles.inputLabel}>Password</Text>
               <TextInput
@@ -44,26 +45,24 @@ export default function Signin({navigation}) {
             
       </View>
       <View style={styles.formAction}>
-        <TouchableOpacity 
-<<<<<<< HEAD
-          onPress={() =>{ navigation.navigate("Main")
+        <TouchableOpacity
             //handle onPress
-=======
           onPress={async ()=> {
            try{
-              const response = await fetch('http://localhost:8081/login', {
+            const response = await fetch('http://localhost:8081/login', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
               },
               body: JSON.stringify({
-                username: form.name,
+                email: form.email,
                 password: form.password,
               }),
             });            
               const data = await response.json();
               if(response.ok) {
                 Alert.alert('Successfully logged in!');
+                navigation.navigate("Main");
               }else{
                 Alert.alert('Error logging in', data.error || 'unknown error occured');
               }
@@ -72,6 +71,7 @@ export default function Signin({navigation}) {
               console.error(error);
             } 
           }}>
+
           <View style={styles.btn}>
              <Text style={styles.btnText}>Sign in</Text>
           </View>
@@ -85,7 +85,6 @@ export default function Signin({navigation}) {
     <Text style={styles.formFooter}>
       Don't have an account? <Text style={{textDecorationLine: 'underline'}}></Text>Sign Up!</Text>
   </TouchableOpacity>
-</View>
 </View>
 </View>
 </SafeAreaView>

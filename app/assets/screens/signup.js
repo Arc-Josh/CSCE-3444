@@ -97,6 +97,7 @@ export default function Signup({navigation}) {
 </View>
 </View>
 </View>
+</View>
 </SafeAreaView>
 );
 }
