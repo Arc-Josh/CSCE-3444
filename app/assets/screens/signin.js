@@ -49,7 +49,7 @@ export default function Signin({navigation}) {
             //handle onPress
           onPress={async ()=> {
            try{
-            const response = await fetch('http://localhost:8081/login', {
+            const response = await fetch('http://localhost:8080/login', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
