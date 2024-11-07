@@ -59,7 +59,7 @@ export default function Signup({navigation}) {
           onPress={async ()=> {
             //handle onPress
               try{
-              const response = await fetch('http://localhost:8081/register', {
+              const response = await fetch('http://localhost:8080/register', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
