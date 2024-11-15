@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, Alert } from 'react-native';
 
-
-export default function main({navigation}) {
+export default function Main({ navigation }) {
   // States for work schedule
   const [workStartTime, setWorkStartTime] = useState('');
   const [workEndTime, setWorkEndTime] = useState('');
@@ -43,72 +42,81 @@ export default function main({navigation}) {
       <Text style={styles.title}>Schedule Information</Text>
 
       {/* Work Schedule Section */}
-      <Text style={styles.sectionTitle}>Work Schedule</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Work Start Time (e.g., 9:00 AM)"
-        value={workStartTime}
-        onChangeText={setWorkStartTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Work End Time (e.g., 5:00 PM)"
-        value={workEndTime}
-        onChangeText={setWorkEndTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Work Days (e.g., Mon-Fri)"
-        value={workDays}
-        onChangeText={setWorkDays}
-      />
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Work Schedule</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Work Start Time (e.g., 9:00 AM)"
+          value={workStartTime}
+          onChangeText={setWorkStartTime}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Work End Time (e.g., 5:00 PM)"
+          value={workEndTime}
+          onChangeText={setWorkEndTime}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Work Days (e.g., Mon-Fri)"
+          value={workDays}
+          onChangeText={setWorkDays}
+        />
+      </View>
 
       {/* School Schedule Section */}
-      <Text style={styles.sectionTitle}>School Schedule</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="School Start Time (e.g., 8:00 AM)"
-        value={schoolStartTime}
-        onChangeText={setSchoolStartTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="School End Time (e.g., 3:00 PM)"
-        value={schoolEndTime}
-        onChangeText={setSchoolEndTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="School Days (e.g., Mon, Wed, Fri)"
-        value={schoolDays}
-        onChangeText={setSchoolDays}
-      />
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>School Schedule</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="School Start Time (e.g., 8:00 AM)"
+          value={schoolStartTime}
+          onChangeText={setSchoolStartTime}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="School End Time (e.g., 3:00 PM)"
+          value={schoolEndTime}
+          onChangeText={setSchoolEndTime}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="School Days (e.g., Mon, Wed, Fri)"
+          value={schoolDays}
+          onChangeText={setSchoolDays}
+        />
+      </View>
 
       {/* Sleep Schedule Section */}
-      <Text style={styles.sectionTitle}>Sleep Schedule</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Sleep Start Time (e.g., 10:00 PM)"
-        value={sleepStartTime}
-        onChangeText={setSleepStartTime}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Sleep End Time (e.g., 6:00 AM)"
-        value={sleepEndTime}
-        onChangeText={setSleepEndTime}
-      />
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Sleep Schedule</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Sleep Start Time (e.g., 10:00 PM)"
+          value={sleepStartTime}
+          onChangeText={setSleepStartTime}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Sleep End Time (e.g., 6:00 AM)"
+          value={sleepEndTime}
+          onChangeText={setSleepEndTime}
+        />
+      </View>
 
       {/* Miscellaneous Tasks Section */}
-      <Text style={styles.sectionTitle}>Miscellaneous Tasks</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Details (e.g., Gym, Groceries)"
-        value={miscDetails}
-        onChangeText={setMiscDetails}
-      />
+      <View style={styles.sectionContainer}>
+        <Text style={styles.sectionTitle}>Miscellaneous Tasks</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Details (e.g., Gym, Groceries)"
+          value={miscDetails}
+          onChangeText={setMiscDetails}
+        />
+      </View>
 
-      <Button title="Submit" onPress={handleSubmit} />
+      {/* Submit Button */}
+      <Button title="Submit" onPress={handleSubmit} color="#637074" />
     </ScrollView>
   );
 };
@@ -116,26 +124,41 @@ export default function main({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: 'center',
+    backgroundColor: '#BDD4E7',
     padding: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: 20,
+    color: '#212227',
+  },
+  sectionContainer: {
+    backgroundColor: '#fff', 
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginTop: 20,
+    color: '#212227',
     marginBottom: 10,
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '#AAB9CF',
     borderWidth: 1,
+    borderRadius: 5,
     marginBottom: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
+    fontSize: 16,
+    color: '#212227',
   },
 });

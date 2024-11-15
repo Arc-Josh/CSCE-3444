@@ -41,7 +41,7 @@ app.use(cors({
 })
 );
 
-);app.use((req, res, next) => {
+app.use((req, res, next) => {
   console.log('Request Headers:', req.headers);
   console.log('CORS Headers:', res.getHeaders()); // Log headers
   next();
@@ -94,7 +94,7 @@ const userLogin = async (username, password, res) => {
   if(!username || !password){
     console.log('Username or password missing');
     return res.status(400).json({error: "username or password missing"});
-  }
+  } 
   await setSchema('user_info');
   try {
     const user = await db.one('SELECT password FROM tbl_account_info WHERE email = $1', [username]);

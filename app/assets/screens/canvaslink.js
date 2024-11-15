@@ -1,25 +1,26 @@
 import React, {useState} from 'react';
-import { TouchableOpacity, Alert, SafeAreaView, StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { TouchableOpacity, Alert, SafeAreaView, StyleSheet, Text, View, TextInput } from 'react-native';
 
-export default function Signup({navigation}) {
+export default function Canvaslink({navigation}) {
   const [form, setForm] = useState({
     email: '',
     password: '',
     name: '',
   });
+
   return (
     <SafeAreaView style={{flex: 1,backgroundColor: '#FFFFFF'}}>
       <View style={styles.container}>
           <View style = {styles.header}>
-      <Text style={styles.title}>Sign up for Schedy</Text>
+      <Text style={styles.title}>Log-in To Canvas</Text>
       <Text style={styles.subtitle}>
-        Manage your time efficiently
+        Link your Canvas Account to Schedy! 
         </Text>
         </View>
         
       <View style={styles.form}>
           <View style={styles.input}>
-              <Text style={styles.inputLabel}>Email address</Text>
+              <Text style={styles.inputLabel}>EUID</Text>
               <TextInput
                   autoCapitalize="none"
                   autoCorrect={false}
@@ -30,19 +31,7 @@ export default function Signup({navigation}) {
                   value={form.email}
                   onChangeText={email => setForm({...form,email})}
                   />
-
-           <View style={styles.input}>
-              <Text style={styles.inputLabel}>Full Name</Text>
-              <TextInput
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="default"
-                  style={styles.inputControl}
-                  placeholder="John Doe"
-                  placeholderTextColor="#6b7280"
-                  value={form.name}
-                  onChangeText={name => setForm({...form,name})}
-                  />
+        </View>
           <View style={styles.input}>
               <Text style={styles.inputLabel}>Password</Text>
               <TextInput
@@ -53,49 +42,49 @@ export default function Signup({navigation}) {
                   value={form.password}
                   onChangeText={password => setForm({...form,password})}
                 />
+            
       </View>
       <View style={styles.formAction}>
-        <TouchableOpacity 
-          onPress={async ()=> {
+        <TouchableOpacity
             //handle onPress
-              try{
-              const response = await fetch('http://10.0.49.121:8080/register', {
+          onPress={async ()=> {
+           try{
+            const response = await fetch('http://10.125.211.192:8080/login', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
               },
               body: JSON.stringify({
-                username: form.name,
-                password: form.password,
                 email: form.email,
+                password: form.password,
               }),
             });            
-                const data = await response.json();
+              const data = await response.json();
               if(response.ok) {
-                Alert.alert('Successfully signed up!');
+                Alert.alert('Successfully logged in!');
+                navigation.navigate("Home");
               }else{
-                Alert.alert('Error signing up', data.error || 'unknown error occured');
+                Alert.alert('Error logging in', data.error || 'unknown error occured');
               }
             }catch(error){
               Alert.alert('Error','Could not connect to server');
               console.error(error);
             } 
           }}>
+
           <View style={styles.btn}>
-             <Text style={styles.btnText}>Sign up</Text>
+             <Text style={styles.btnText}>Sync Account!</Text>
           </View>
         </TouchableOpacity>
   </View>
   <TouchableOpacity
     style={{marginTop: 'auto'}}
-     onPress={() =>{ navigation.navigate("Signin")
+    onPress={() =>{ navigation.navigate("Signup")
       //handle onPress
   }}>
     <Text style={styles.formFooter}>
-      Have an account? <Text style={{textDecorationLine: 'underline'}}></Text>Log in!</Text>
+      Don't have a canvas account? <Text style={{textDecorationLine: 'underline'}}></Text>Sign Up via Email!</Text>
   </TouchableOpacity>
-</View>
-</View>
 </View>
 </View>
 </SafeAreaView>
@@ -109,6 +98,12 @@ const styles = StyleSheet.create({
   },
   header: {
       marginVertical: 36,
+  },
+  headerImg: {
+      width: 80,
+      height: 80,
+      alignSelf: 'center',
+      marginBottom: 36,
   },
   title: {
       fontSize: 27,
@@ -143,7 +138,7 @@ const styles = StyleSheet.create({
       color: '#222'
   },
   form: {
-    marginBottom: 50,
+    marginBottom: 24,
     flex: 1,
   },
   formAction: {

@@ -49,7 +49,7 @@ export default function Signin({navigation}) {
             //handle onPress
           onPress={async ()=> {
            try{
-            const response = await fetch('http://localhost:8080/login', {
+            const response = await fetch('http://10.0.49.121:8080/login', {
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
@@ -62,7 +62,7 @@ export default function Signin({navigation}) {
               const data = await response.json();
               if(response.ok) {
                 Alert.alert('Successfully logged in!');
-                navigation.navigate("Main");
+                navigation.navigate("Home");
               }else{
                 Alert.alert('Error logging in', data.error || 'unknown error occured');
               }
