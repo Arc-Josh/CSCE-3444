@@ -36,21 +36,12 @@ getAccessToken();
 const app = express();
 const port = process.env.PORT || 8080;
 
-// CORS configuration (allows only your frontend)
-const corsOptions = {
-  origin: '*', // Replace with your frontend's address
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-};
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', '*'); // or the specific origin like 'http://localhost:8082'
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.send();
-});
-// allows for connections from different ports, which was the biggest problem last time 
-app.use(cors(corsOptions)); // Apply CORS middleware globally
-app.use((req, res, next) => {
+app.use(cors({
+  origin: "*",
+})
+);
+
+);app.use((req, res, next) => {
   console.log('Request Headers:', req.headers);
   console.log('CORS Headers:', res.getHeaders()); // Log headers
   next();
@@ -100,6 +91,10 @@ const registerUser = async (username, real_password, email, res) => {
 
 // User login
 const userLogin = async (username, password, res) => {
+  if(!username || !password){
+    console.log('Username or password missing');
+    return res.status(400).json({error: "username or password missing"});
+  }
   await setSchema('user_info');
   try {
     const user = await db.one('SELECT password FROM tbl_account_info WHERE email = $1', [username]);
@@ -121,7 +116,6 @@ const userLogin = async (username, password, res) => {
     }
   }
 };
-
 // Routes
 app.post('/register', async (req, res) => {
   console.log('POST /register request received');
