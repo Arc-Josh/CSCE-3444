@@ -49,7 +49,11 @@ export default function Signin({navigation}) {
             //handle onPress
           onPress={async ()=> {
            try{
+<<<<<<< HEAD
             const response = await fetch('http://10.0.49.121:8080/login', {
+=======
+            const response = await fetch('http://192.168.1.158:8080/login', {
+>>>>>>> e5e7679 (New Commit)
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
@@ -58,7 +62,12 @@ export default function Signin({navigation}) {
                 email: form.email,
                 password: form.password,
               }),
+<<<<<<< HEAD
             });            
+=======
+              //mode: 'cors'
+            });       
+>>>>>>> e5e7679 (New Commit)
               const data = await response.json();
               if(response.ok) {
                 Alert.alert('Successfully logged in!');
@@ -81,9 +90,19 @@ export default function Signin({navigation}) {
     style={{marginTop: 'auto'}}
     onPress={() =>{ navigation.navigate("Signup")
       //handle onPress
-  }}>
+  }}> 
     <Text style={styles.formFooter}>
       Don't have an account? <Text style={{textDecorationLine: 'underline'}}></Text>Sign Up!</Text>
+      </TouchableOpacity>
+      
+  <TouchableOpacity
+    style={{marginTop: 'auto'}}
+    onPress={() =>{ navigation.navigate("Canvaslink")
+      //handle onPress
+  }}>
+      <Text style={styles.formFooter}>
+      Have a canvas account? <Text style={{textDecorationLine: 'underline'}}></Text>Sign In!</Text>
+
   </TouchableOpacity>
 </View>
 </View>
