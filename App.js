@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Signup from './app/assets/screens/signup';
 import Signin from './app/assets/screens/signin';
-import Main from './app/assets/screens/main';
+import Home from './app/assets/screens/home';
+import Canvaslink from './app/assets/screens/canvaslog';
 
 
 const Stack = createNativeStackNavigator();
@@ -14,11 +15,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Signup"
-          component={Signup}
+          name="Signin"
+          component={Signin}
         />
-        <Stack.Screen name="Signin" component={Signin} />
-          <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Signup" component={Signup}/>
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="Canvaslink" component={Canvaslink}/>
+         
+           
       </Stack.Navigator>
     </NavigationContainer>
   );
