@@ -106,33 +106,34 @@ const styles = StyleSheet.create({
   container: {
       padding: 24,
       flex: 1,
+      backgroundColor: '#1E152A'
   },
   header: {
       marginVertical: 36,
+      backgroundColor: '#1E152A'
   },
   title: {
       fontSize: 27,
       fontWeight: '700',
-      color: '#010101',
+      color: '#F7DD72',
       marginBottom: 6,
       textAlign: 'center',
   },
   subtitle:{
       fontSize: 15,
       fontWeight: '500',
-      color: '#010101',
+      color: '#fff',
       textAlign: 'center'
   },
   input: {
     marginBottom: 16, 
-
   },
   inputLabel:{
       fontSize: 17,
       fontWeight: '600',
-      color: '#222',
+      color: '#F7DD72',
       marginBottom: 8,
-      },
+  },
   inputControl: {
       height: 44,
       backgroundColor: '#fff',
@@ -152,15 +153,15 @@ const styles = StyleSheet.create({
   formFooter: {
     fontSize: 17, 
     fontWeight: '600',
-    color: '#222',
+    color: '#FEFDFF',
     textAlign: 'center',
     letterSpacing: 0.15
   },
   btn: {
-    backgroundColor: '#075eec',
+    backgroundColor: '#1E152A',
     borderRadius: 8,
     borderWidth: 1, 
-    borderColor: '#075eec',
+    borderColor: '#1E152A',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

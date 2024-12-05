@@ -93,78 +93,73 @@ export default function Signin({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-      padding: 24,
-      flex: 1,
-  },
-  header: {
-      marginVertical: 36,
-  },
-  headerImg: {
-      width: 80,
-      height: 80,
-      alignSelf: 'center',
-      marginBottom: 36,
-  },
-  title: {
-      fontSize: 27,
-      fontWeight: '700',
-      color: '#010101',
-      marginBottom: 6,
-      textAlign: 'center',
-  },
-  subtitle:{
-      fontSize: 15,
-      fontWeight: '500',
-      color: '#010101',
-      textAlign: 'center'
-  },
-  input: {
-    marginBottom: 16, 
-
-  },
-  inputLabel:{
-      fontSize: 17,
-      fontWeight: '600',
-      color: '#222',
-      marginBottom: 8,
-      },
-  inputControl: {
-      height: 44,
-      backgroundColor: '#fff',
-      paddingHorizontal: 16,
-      borderRadius: 12,
-      fontSize: 15,
-      fontWeight: '500',
-      color: '#222'
-  },
-  form: {
-    marginBottom: 24,
+    padding: 24,
     flex: 1,
-  },
-  formAction: {
-    marginVertical: 24,
-  },
-  formFooter: {
-    fontSize: 17, 
-    fontWeight: '600',
-    color: '#222',
+    backgroundColor: '#1E152A'
+},
+header: {
+    marginVertical: 36,
+    backgroundColor: '#1E152A'
+},
+title: {
+    fontSize: 27,
+    fontWeight: '700',
+    color: '#F7DD72',
+    marginBottom: 6,
     textAlign: 'center',
-    letterSpacing: 0.15
-  },
-  btn: {
-    backgroundColor: '#075eec',
-    borderRadius: 8,
-    borderWidth: 1, 
-    borderColor: '#075eec',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-  },
-  btnText: {
-      fontSize: 18,
-      fontWeight: '600',
-      color: '#fff',
-    }
+},
+subtitle:{
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#fff',
+    textAlign: 'center'
+},
+input: {
+  marginBottom: 16, 
+},
+inputLabel:{
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#F7DD72',
+    marginBottom: 8,
+},
+inputControl: {
+    height: 44,
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#222'
+},
+form: {
+  marginBottom: 50,
+  flex: 1,
+},
+formAction: {
+  marginVertical: 24,
+},
+formFooter: {
+  fontSize: 17, 
+  fontWeight: '600',
+  color: '#FEFDFF',
+  textAlign: 'center',
+  letterSpacing: 0.15
+},
+btn: {
+  backgroundColor: '#1E152A',
+  borderRadius: 8,
+  borderWidth: 1, 
+  borderColor: '#1E152A',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingVertical: 10,
+  paddingHorizontal: 20,
+},
+btnText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#fff',
+  }
 });
