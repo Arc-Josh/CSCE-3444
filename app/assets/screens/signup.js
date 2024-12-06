@@ -59,11 +59,7 @@ export default function Signup({navigation}) {
           onPress={async ()=> {
             //handle onPress
               try{
-<<<<<<< HEAD
-              const response = await fetch('http://10.0.49.121:8080/register', {
-=======
               const response = await fetch('http://192.168.1.158:8080/register', {
->>>>>>> e5e7679 (New Commit)
               method: 'POST',
               headers:{
                 'Content-type':'application/json',
@@ -73,10 +69,7 @@ export default function Signup({navigation}) {
                 password: form.password,
                 email: form.email,
               }),
-<<<<<<< HEAD
-=======
               //mode: 'cors'
->>>>>>> e5e7679 (New Commit)
             });            
                 const data = await response.json();
               if(response.ok) {
